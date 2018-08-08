@@ -21,5 +21,12 @@ attr_reader :name, :till, :drinks
     end
   end
 
+  def add_money(amount)
+    @till += amount
+  end
+
+  def remove_drink(drink)
+    @drinks.delete(drink)
+  end
 
 end

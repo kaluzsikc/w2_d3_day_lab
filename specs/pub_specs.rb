@@ -35,7 +35,16 @@ class PubTest < MiniTest::Test
 
   def test_drink_by_name__not_found
     assert_equal("We don't have that drink", @pub.find_drink("ygiy"))
+  end
 
+  def test_add_money
+    @pub.add_money(50)
+    assert_equal(550, @pub.till)
+  end
+
+  def test_remove_drink
+    @pub.remove_drink(@drink1)
+    assert_equal(3, @pub.drinks.count)
   end
 
 end
