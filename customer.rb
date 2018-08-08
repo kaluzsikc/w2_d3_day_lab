@@ -20,7 +20,7 @@ class Customer
 
   def buy_drink(drink, pub)
     @wallet -= drink.price
-    pub.sell_drink(drink)
+    pub.sell_drink(drink, self)
   end
 
 

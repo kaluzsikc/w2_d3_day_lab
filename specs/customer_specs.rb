@@ -43,6 +43,10 @@ class CustomerTest < MiniTest::Test
     assert_equal(0, @customer1.drunkenness_lvl)
   end
 
-  
+  # def test_add_drunkenness_lvl
+  #   @customer1.add_drunkenness_lvl(1)
+  #   assert_equal(1, @customer1.drunkenness_lvl)
+  # end
+
 
 end
