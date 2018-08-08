@@ -3,16 +3,19 @@ require("minitest/rg")
 require("pry")
 require_relative("../pub")
 require_relative("../drink")
+require_relative("../customer")
 
 class PubTest < MiniTest::Test
   def setup
 
-    @drink1 = Drink.new("Beer", 3)
-    @drink2 = Drink.new("Ale", 4)
-    @drink3 = Drink.new("Wine", 5)
-    @drink4 = Drink.new("Vodka", 6)
+    @drink1 = Drink.new("Beer", 3, 1)
+    @drink2 = Drink.new("Ale", 4, 1)
+    @drink3 = Drink.new("Wine", 5, 2)
+    @drink4 = Drink.new("Vodka", 6, 3)
 
     drinks = [@drink1, @drink2, @drink3, @drink4]
+
+    @customer1 = Customer.new("Allan", 10, 12)
 
     @pub = Pub.new("CodeDrinks", 500, drinks)
   end
@@ -51,6 +54,11 @@ class PubTest < MiniTest::Test
     @pub.sell_drink(@drink1)
     assert_equal(503, @pub.till)
     assert_equal(3, @pub.drinks.count)
+  end
+
+  def test_check_age
+    expected = "You are too young to drink!"
+    assert_equal(expected, @customer.check_age)
   end
 
 end
