@@ -16,6 +16,7 @@ class PubTest < MiniTest::Test
     drinks = [@drink1, @drink2, @drink3, @drink4]
 
     @customer1 = Customer.new("Allan", 10, 12)
+    @customer2 = Customer.new("John", 10, 19)
 
     @pub = Pub.new("CodeDrinks", 500, drinks)
   end
@@ -57,8 +58,12 @@ class PubTest < MiniTest::Test
   end
 
   def test_check_age
-    expected = "You are too young to drink!"
-    assert_equal(expected, @customer.check_age)
+    assert_equal(false, @pub.check_age(@customer1))
   end
+
+  def test_check_age__pass
+    assert_equal(true, @pub.check_age(@customer2))
+  end
+
 
 end

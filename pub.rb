@@ -7,7 +7,6 @@ attr_reader :name, :till, :drinks
     @name = name
     @till = till
     @drinks = drinks
-
   end
 
   def find_drink(drink_name)
@@ -34,5 +33,9 @@ attr_reader :name, :till, :drinks
     remove_drink(drink)
   end
 
+  def check_age(customer)
+    return false if customer.age < 18
+    true
+  end
 
 end
