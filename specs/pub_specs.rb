@@ -52,9 +52,15 @@ class PubTest < MiniTest::Test
   end
 
   def test_sell_drink
-    @pub.sell_drink(@drink1)
+    @pub.sell_drink(@drink1, @customer2)
     assert_equal(503, @pub.till)
     assert_equal(3, @pub.drinks.count)
+  end
+
+  def test_sell_drink__too_young_to_sell
+    @pub.sell_drink(@drink1, @customer1)
+    assert_equal(500, @pub.till)
+    assert_equal(4, @pub.drinks.count)  
   end
 
   def test_check_age

@@ -28,7 +28,8 @@ attr_reader :name, :till, :drinks
     @drinks.delete(drink)
   end
 
-  def sell_drink(drink)
+  def sell_drink(drink, customer)
+    return if check_age(customer) == false
     add_money(drink.price)
     remove_drink(drink)
   end
