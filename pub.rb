@@ -29,4 +29,10 @@ attr_reader :name, :till, :drinks
     @drinks.delete(drink)
   end
 
+  def sell_drink(drink)
+    add_money(drink.price)
+    remove_drink(drink)
+  end
+
+
 end
