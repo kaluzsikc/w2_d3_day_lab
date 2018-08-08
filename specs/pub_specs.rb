@@ -7,12 +7,12 @@ require_relative("../drink")
 class PubTest < MiniTest::Test
   def setup
 
-    drink1 = Drink.new("Beer", 3)
-    drink2 = Drink.new("Ale", 4)
-    drink3 = Drink.new("Wine", 5)
-    drink4 = Drink.new("Vodka", 6)
+    @drink1 = Drink.new("Beer", 3)
+    @drink2 = Drink.new("Ale", 4)
+    @drink3 = Drink.new("Wine", 5)
+    @drink4 = Drink.new("Vodka", 6)
 
-    drinks = [drink1, drink2, drink3, drink4]
+    drinks = [@drink1, @drink2, @drink3, @drink4]
 
     @pub = Pub.new("CodeDrinks", 500, drinks)
   end
@@ -30,7 +30,7 @@ class PubTest < MiniTest::Test
   end
 
   def test_find_drink_by_name
-    assert_equal("Beer", @pub.find_drink("Beer"))
+    assert_equal(@drink1, @pub.find_drink("Beer"))
   end
 
   def test_drink_by_name__not_found

@@ -9,6 +9,10 @@ class Customer
 
   def buy_drink(drink_name, pub)
     # return "we don't have that drink" if drink is not on the pub
-    # search for drink string
+    # search for drink object
+    drink = pub.find_drink(drink_name)
+    # return drink if drink == drink.is_str
+    @wallet -= drink.price
+
   end
 end

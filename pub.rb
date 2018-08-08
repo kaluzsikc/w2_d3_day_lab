@@ -14,7 +14,7 @@ attr_reader :name, :till, :drinks
 
     for drink in @drinks
       if drink.name == drink_name
-        return drink.name
+        return drink
       else
         return "We don't have that drink"
       end
